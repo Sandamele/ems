@@ -1,25 +1,19 @@
+const validateRegisterAdmin = require('../../middleware/validationRegisterAdmin');
 const Admin = require('../../models/admin');
-const bcrypt = require('bcrypt');
-
 const register = async(req, res) => {
-    const {first_name, last_name, username, email, roles, passwords, confirmPassword} = req.body;
-    if(passwords !== confirmPassword){
-        return res.status(400).json({message: "Passwords do not match"});
-    }
-    const salt = await bcrypt.genSalt();
-    const hashPassword = await bcrypt.hash(passwords, salt);
+  const {first_name, last_name, username, email, roles, passwords, confirmPassword} = req.body;
     try {
-      await Admin.create({
-        first_name,
-        last_name,
-        username,
-        email,
-        roles,
-        passwords: hashPassword,
-      });
+      const registerValidation = await validateRegisterAdmin(first_name, last_name, username, email, roles, passwords, confirmPassword);
+      const {registerAdmin, registerAdminValid, registerAdminError} = registerValidation;
+      const isValid = Object.values(registerAdminValid).every((valid) => valid);
+      if (!isValid) {
+        return res.status(400).send({ errors: registerAdminError });
+      }
+      await Admin.create(registerAdmin);
       res.status(200).json({ message: "Admin registered"});
     } catch (error) {
-      res.status(400).json({error: error.errors[0].message});
+      console.log(error)
+      res.status(400).json({error});
     }
 }
 

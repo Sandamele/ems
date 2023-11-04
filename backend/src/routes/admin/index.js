@@ -14,10 +14,11 @@ router.post("/register", register);
 router.post("/login", login);
 router.get("/find", verifyToken, getAllAdmins);
 router.get("/token", refreshToken);
-router.get("/edit/:id/:adminRole", verifyToken, editAdmin);
 router.get("/:id", verifyToken ,findAdmin);
 router.delete("/logout", logout);
 router.delete("/delete/:id/:adminRole", verifyToken, deleteAdmin);
 router.put("/change_password/:id", verifyToken,changePassword);
+router.put("/edit/:id/:adminRole", verifyToken, editAdmin);
+
 
 module.exports = router;

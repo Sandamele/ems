@@ -11,6 +11,11 @@ const Department = sequelize.define("department", {
     type: Sequelize.STRING,
     unique: false,
     allowNull: false,
+  },
+  manager: {
+    type: Sequelize.STRING,
+    unique: false,
+    allowNull: false,
   }
 });
 
