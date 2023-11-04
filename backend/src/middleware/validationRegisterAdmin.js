@@ -1,6 +1,17 @@
 const isEmpty = require("../utils/isEmpty");
 const bcrypt = require("bcrypt");
-
+/**
+ * Validates registration details for an admin user and sets validation flags and error messages.
+ *
+ * @param {string} first_name - The first name of the admin user.
+ * @param {string} last_name - The last name of the admin user.
+ * @param {string} username - The username of the admin user.
+ * @param {string} email - The email address of the admin user.
+ * @param {string} roles - The role of the admin user.
+ * @param {string} passwords - The password of the admin user.
+ * @param {string} confirmPassword - The confirmation password for validation.
+ * @returns {object} An object containing the validated admin user registration data, validation flags, and error messages.
+ */
 const validateRegisterAdmin = async (
   first_name,
   last_name,

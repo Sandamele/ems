@@ -4,6 +4,7 @@ const { deleteEmployee } = require("../../controllers/employee/delete");
 const { findEmployee } = require("../../controllers/employee/findEmployee");
 const { getAllEmployee } = require("../../controllers/employee/listAll");
 const { updateEmployee } = require("../../controllers/employee/update");
+const { verifyToken } = require("../../middleware/verifyToken");
 
 router.post("/add", verifyToken, addEmployee);
 router.get("/", verifyToken, getAllEmployee);
