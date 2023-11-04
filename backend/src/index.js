@@ -5,6 +5,7 @@ const PORT = process.env.PORT || 9999;
 const bodyParser = require("body-parser");
 const db = require('./config/dbConnection');
 const cookieParser = require("cookie-parser");
+const cors = require('cors');
 // Routes
 const registerRoute = require('./routes/admin');
 const departmentRoute = require("./routes/department");
@@ -18,6 +19,7 @@ db.authenticate().then(() => {
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+app.use(cors);
 app.use(cookieParser());
 // We are testing to see if the server is functioning correctly."
 app.get("/api/testing", (req, res) => {
