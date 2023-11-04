@@ -19,7 +19,7 @@ db.authenticate().then(() => {
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-
+app.use(cors())
 app.use(cookieParser());
 // We are testing to see if the server is functioning correctly."
 app.get("/api/testing", (req, res) => {
