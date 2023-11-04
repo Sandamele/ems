@@ -1,0 +1,26 @@
+{
+  "name": "employee_management_backend",
+  "version": "0.0.1",
+  "description": "Employee managament server",
+  "main": "src/index.js",
+  "scripts": {
+    "develop": "NODE_ENV=development nodemon src/index.js",
+    "start": "NODE_ENV=production node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "employee",
+    "management"
+  ],
+  "author": "Keith Sandamele",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mysql2": "^3.6.2",
+    "nodemon": "^3.0.1"
+  }
+}
