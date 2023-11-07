@@ -2,7 +2,7 @@ const Employee = require("../../models/employee");
 const deleteEmployee = async (req, res) => {
   const employeeId = req.params.id;
   try {
-    const employee = Employee.findByPk(employeeId);
+    const employee = await Employee.findByPk(employeeId);
     if (!employee) {
       return res.status(400).json({ message: "Employee not found" });
     }
@@ -10,7 +10,7 @@ const deleteEmployee = async (req, res) => {
     return res.status(200).json({ message: "Employee deleted successfully" });
   } catch (error) {
     console.log(error);
-    res.status(500).send("Server Error");
+    res.status(400).json({error: error});
   }
 };
 

@@ -1,7 +1,7 @@
 const Admin = require("../../models/admin");
 const editAdmin = async (req, res) => {
-  const { id, adminRole } = req.params.adminRole;
-  if (adminRole !== "super admin") {
+  const { id, adminRole } = req.params;
+  if (adminRole !== "Super Admin") {
     return res.status(401).json({ error: "Only super admin can edit admins" });
   }
   const { first_name, last_name, username, roles } = req.body;
@@ -29,7 +29,7 @@ const editAdmin = async (req, res) => {
     );
     res.status(200).json({ message: "Edited successfully" });
   } catch (error) {
-    res.sendStatus(404);
+    res.status(400).json({error});
   }
 };
 

@@ -1,0 +1,36 @@
+@use 'colors.scss' as colors;
+.navigation {
+    background-color: white;
+    z-index: 2;
+    height: 100vh;
+    position: fixed;
+    width: 230px;
+    border-right: 1px solid colors.$secondary;
+    padding: 10px 10px;
+    ul{
+        list-style: none;
+        padding: 0;
+        position: relative;
+        li{
+            padding: 10px 10px;
+            a{
+                color: black;
+                text-decoration: none;
+            }
+            &:hover{
+                background-color: colors.$primary;
+                cursor: pointer;
+                a{color: white;}
+                border-radius: 5px;
+            }
+        }
+    }
+    .navigationUsername {
+        position: absolute;
+        bottom: 0;
+        li:hover{
+            background-color: inherit;
+            a{color: initial;}
+        }
+    }
+}

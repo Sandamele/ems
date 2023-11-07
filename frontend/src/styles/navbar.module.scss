@@ -1,0 +1,10 @@
+@use './colors.scss' as colors;
+.navbar {
+    background-color: colors.$secondary;
+    font-size: 25px;
+    color: white;
+    width: 100%;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+}

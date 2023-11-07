@@ -1,0 +1,46 @@
+@use "colors.scss" as colors;
+.inputbox {
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 0;
+    &::placeholder {
+        font-weight: 300;
+    }
+   &:focus{
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+   }
+}
+
+.button {
+    background-color: colors.$primary;
+    color: white;
+    border-radius: 0;
+    width: 100%;
+    font-weight: 400;
+    &:hover {
+        background-color: inherit;
+        border-color: colors.$primary;
+        color: colors.$primary;
+        cursor: pointer;
+    }
+}
+
+.select {
+    width: 100%;
+    border-radius: 0;
+    padding: 10px 20px;
+    &:focus{
+        border-color: inherit;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+       }
+}
+
+.backButton, .backButton:hover{
+    background-color: white;
+    border:1px solid black;
+    border-radius: 5px;
+    font-size: 14px;
+}

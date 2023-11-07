@@ -1,0 +1,17 @@
+@use './colors.scss' as colors;
+.formContainer {
+    border: 0.5px solid #6c757d;
+    width: 100%;
+    border-radius: 5px;
+    .header{
+        background-color: colors.$primary;
+        color: white;
+        text-align: center;
+        padding: 15px 0;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    .children {
+        padding: 25px;
+    }
+}
