@@ -78,8 +78,8 @@ The credentials are in ./backend/.env.development
 # Frontend
 Go to frontend
 ## Requirement
-Nextjs 14.0.1 Page Router
-Node 20.9.0
+- Nextjs 14.0.1 Page Router
+- Node 20.9.0
 ## Install
 npm install
 ## Run in development
