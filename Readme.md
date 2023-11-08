@@ -9,7 +9,8 @@ npm run develop
 ## Run in production
 npm run start
 
-## Folder Structure 
+## Folder Structure
+```
 ┣ src/
 ┃ ┣ config/
 ┃ ┃ ┣ dbConnection.js
@@ -68,6 +69,7 @@ npm run start
 ┣ Readme.md
 ┣ package-lock.json
 ┗ package.json
+```
 
 # Database 
 Using MYSQL
@@ -86,6 +88,7 @@ npm run dev
 The credentials are in ./frontend/.env.development
 
 ## Folder Structure
+```
 public/
 ┃ ┣ favicon.ico
 ┃ ┣ next.svg
@@ -162,3 +165,4 @@ public/
 ┣ next.config.js
 ┣ package-lock.json
 ┗ package.json
+```
