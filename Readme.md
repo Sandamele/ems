@@ -72,10 +72,10 @@ npm run start
 ```
 
 # Database 
-Using MYSQL
-The credentials are in ./backend/.env.development
+- Using MYSQL
+- The credentials are in ./backend/.env.development
 
-# Frontend
+# Frontend Instructions
 Go to frontend
 ## Requirement
 - Nextjs 14.0.1 Page Router
