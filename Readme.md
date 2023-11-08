@@ -82,6 +82,9 @@ Node 20.9.0
 npm install
 ## Run in development
 npm run dev
+
+The credentials are in ./frontend/.env.development
+
 ## Folder Structure
 public/
 ┃ ┣ favicon.ico
