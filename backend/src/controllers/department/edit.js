@@ -24,7 +24,7 @@ const editDepartmentName = async (req, res) => {
     res.status(200).json({ message: "Updated successfully" });
   } catch (error) {
     console.log("Error", error);
-    res.status(500).send({ error: "Internal Server Error" });
+    res.status(400).send({ error: error });
   }
 };
 

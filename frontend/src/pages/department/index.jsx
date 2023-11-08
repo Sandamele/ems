@@ -4,11 +4,14 @@ import { handleAddDepartmentRouter } from './department.logic'
 import Button from '@/components/common/button'
 import { sessionSSR } from '@/utils/sessionSSR'
 import { fetchData } from '@/utils/fetchData'
-
-export default function Index({departments}) {
+import { handleDeleteDepartment, handleEditDepartment } from './index.logic'
+import { BiPencil } from "react-icons/bi";
+import { MdDeleteForever } from "react-icons/md";
+import { ToastContainer } from 'react-toastify'
+export default function Index({departments, token}) {
   return (
     <Layout>
-        <div>
+        <div className='containers'>
             <h3>Department</h3>
           <Button name="Add Department" handleButton={handleAddDepartmentRouter} />
         </div>
@@ -19,6 +22,7 @@ export default function Index({departments}) {
               <tr>
                 <th>Department</th>
                 <th>Manager</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -26,11 +30,21 @@ export default function Index({departments}) {
                 <tr key={department.id}>
                   <td>{department.name}</td>
                   <td>{department.manager}</td>
+                  <td>
+                    <span className="me-3" role="button" onClick={() => handleEditDepartment(department.id)}>
+                      {" "}
+                      <BiPencil color="green" />
+                    </span>
+                    <span className="me-3" role="button" onClick={() => handleDeleteDepartment(department.id, token)}>
+                      <MdDeleteForever color="red" />
+                    </span>
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
+        <ToastContainer />
     </Layout>
   )
 }
@@ -48,7 +62,8 @@ export const getServerSideProps = async (ctx) => {
   const department = await fetchData("department", null, token);
   return {
     props: {
-      departments: department.data
+      departments: department.data,
+      token
     }
   }
 }

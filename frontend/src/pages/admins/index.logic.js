@@ -3,10 +3,9 @@ import { deleteData } from "@/utils/deleteData";
 import { toast } from "react-toastify";
 
 export const handleAddAdminRouter = () => {
-  window.open('/admins/add-admin', '_self')
+  window.open("/admins/add-admin", "_self");
 };
 export const handleEditAdmin = (editId, adminRole) => {
-
   if (adminRole !== "Super Admin") {
     toast.error("Only Super Admin can edit admins", {
       position: "top-center",
@@ -16,7 +15,7 @@ export const handleEditAdmin = (editId, adminRole) => {
     });
     return;
   }
-  window.open(`/admins/edit-admin/${editId}`, '_self');
+  window.open(`/admins/edit-admin/${editId}`, "_self");
 };
 export const handleDeleteAdmin = async (
   deleteId,
@@ -52,11 +51,24 @@ export const handleDeleteAdmin = async (
           closeOnClick: true,
         });
         toast.onChange(() => {
-          setTimeout(()=> {
+          setTimeout(() => {
             window.location.reload();
-          },1200)
-        })
+          }, 1200);
+        });
       }
     }
   );
+};
+
+export const resetAdminPassword = (id, adminRole) => {
+  if (adminRole !== "Super Admin") {
+    toast.error("Only Super Admin can edit admins", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+    });
+    return;
+  }
+  window.open(`/admins/reset-password/${id}`,'_self')
 };

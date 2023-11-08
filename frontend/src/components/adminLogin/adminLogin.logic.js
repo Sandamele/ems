@@ -35,7 +35,7 @@ export default function adminLoginLogic() {
     if(!!res.data.data){
       setInvalidCredentials('');
       setCookie('token', res.data.data);
-      router.push('/dashboard');
+      router.push('/employee');
     }
   };
 

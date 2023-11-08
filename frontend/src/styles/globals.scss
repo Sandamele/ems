@@ -11,3 +11,12 @@
         margin: 10px 20px;
     }
 }
+.containers {
+    width: 200px;
+}
+
+@media screen and (width < 426px){
+    .layoutCotainer{
+        display: block;
+    }
+}

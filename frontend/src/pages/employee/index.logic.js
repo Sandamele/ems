@@ -1,6 +1,8 @@
 import { toast } from "react-toastify"
 import { deleteData } from "../../utils/deleteData"
-
+export const handleEditEmployee = async (id) => {
+    window.open(`/employee/edit-employee/${id}`,'_self')
+}
 export const handleDeleteEmployee = async (id, token) => {
     await deleteData('employee/delete',id, token).then(data => {
         if(!!data.data){
@@ -18,4 +20,8 @@ export const handleDeleteEmployee = async (id, token) => {
             toast.error("Failed to delete employee")
         }
     })
+}
+
+export const handleViewEmployee = async (id) => {
+    window.open(`/employee/${id}`,'_self')
 }

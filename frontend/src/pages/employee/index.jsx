@@ -6,18 +6,18 @@ import { sessionSSR } from '@/utils/sessionSSR';
 import { fetchData } from '@/utils/fetchData';
 import { BiPencil } from "react-icons/bi";
 import { MdDeleteForever } from "react-icons/md";
-import { handleDeleteEmployee } from './index.logic';
+import { AiFillEye } from "react-icons/ai";
+import { handleDeleteEmployee, handleEditEmployee, handleViewEmployee} from './index.logic';
 import { ToastContainer } from 'react-toastify';
 
 export default function Index({employees, token}) {
-    console.log(employees)
     const router = useRouter();
     const handleRouter = () => {
         router.push('/employee/add-employee');
     }
   return (
     <Layout>
-        <div>
+        <div className='containers'>
             <h3>Employees</h3>
             <Button name="Add New Employee" handleButton={handleRouter} />
         </div>
@@ -40,12 +40,15 @@ export default function Index({employees, token}) {
                   <td>{employee.last_name}</td>
                   <td>{employee.employee_code}</td>
                   <td>
-                    <span className="me-3" role="button">
+                    <span className="me-3" role="button" onClick={() => handleEditEmployee(employee.id)}>
                       {" "}
                       <BiPencil color="green" />
                     </span>
-                    <span role="button" onClick={() => handleDeleteEmployee(employee.id, token)}>
+                    <span className="me-3" role="button" onClick={() => handleDeleteEmployee(employee.id, token)}>
                       <MdDeleteForever color="red" />
+                    </span>
+                    <span roel="button" onClick={() => handleViewEmployee(employee.id)}>
+                      <AiFillEye />
                     </span>
                   </td>
                 </tr>

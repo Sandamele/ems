@@ -4,12 +4,13 @@ import React, { useState } from "react";
 import { fetchData } from "@/utils/fetchData";
 import { BiPencil } from "react-icons/bi";
 import { MdDeleteForever } from "react-icons/md";
+import { RiLockPasswordLine } from "react-icons/ri";
 import Button from "../../components/common/button";
 import styles from "../../styles/admin.module.scss";
 import { useEffect } from "react";
 import { session } from "@/utils/session";
 import { ToastContainer, toast } from "react-toastify";
-import { handleAddAdminRouter, handleDeleteAdmin, handleEditAdmin } from "./index.logic";
+import { handleAddAdminRouter, handleDeleteAdmin, handleEditAdmin, resetAdminPassword } from "./index.logic";
 
 export default function Index({ admins, token }) {
   const [adminRole, setAdminRole] = useState("");
@@ -22,14 +23,14 @@ export default function Index({ admins, token }) {
   }, []);
   return (
     <Layout>
-      <div className={`${styles.adminContainer}`}>
+      <div className={`containers`}>
         <h3>Admins</h3>
         {adminRole === "Super Admin" && (
           <Button name="Add Admin" handleButton={handleAddAdminRouter} />
         )}
       </div>
       <hr />
-      <div>
+      <div className="table-responsive">
         <table className="table table-bordered table-striped">
           <thead>
             <tr>
@@ -61,11 +62,15 @@ export default function Index({ admins, token }) {
                     </span>
                     <span
                       role="button"
+                      className="me-3"
                       onClick={() =>
                         handleDeleteAdmin(admin.id, adminId, adminRole, token)
                       }
                     >
                       <MdDeleteForever color="red" />
+                    </span>
+                    <span role="button" onClick={() => resetAdminPassword(admin.id, adminRole)}>
+                      <RiLockPasswordLine />
                     </span>
                   </td>
                 </tr>

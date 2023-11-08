@@ -11,26 +11,37 @@
         list-style: none;
         padding: 0;
         position: relative;
+        display: block;
         li{
-            padding: 10px 10px;
             a{
                 color: black;
                 text-decoration: none;
+                padding: 10px 10px;
+                display: block;
+                &:hover{
+                    background-color: colors.$primary;
+                    color: white;
+                    border-radius: 5px;
+                }
             }
-            &:hover{
-                background-color: colors.$primary;
-                cursor: pointer;
-                a{color: white;}
-                border-radius: 5px;
-            }
+            
         }
     }
     .navigationUsername {
         position: absolute;
         bottom: 0;
-        li:hover{
-            background-color: inherit;
-            a{color: initial;}
+        li{
+            a:hover{
+                cursor: pointer;
+                background-color: inherit;
+                color: colors.$primary;
+            }
         }
+    }
+}
+
+@media screen and (width < 426px){
+    .navigation{
+        display: none;
     }
 }
